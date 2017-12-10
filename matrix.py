@@ -16,6 +16,7 @@ def identity(n):
         I = zeroes(n, n)
         for i in range(n):
             I.g[i][i] = 1.0
+
         return I
 
 class Matrix(object):
@@ -42,13 +43,13 @@ class Matrix(object):
         # TODO - your code here
         
         
-    # 1 x 1 Matrix
-    if self.h == 1:
-        return self.g[0]
+       # 1 x 1 Matrix
+        if self.h == 1:
+            return self.g[0]
 
-    # 2 x 2 Matrix:
-    if self.h == 2:
-        return self.g[0][0]*self.g[1][1] - self.g[0][1]*self.g[1][0]
+       # 2 x 2 Matrix:
+        if self.h == 2:
+            return self.g[0][0]*self.g[1][1] - self.g[0][1]*self.g[1][0]
 
 
     def trace(self):
@@ -208,20 +209,22 @@ class Matrix(object):
         return grid
 
     def __rmul__(self, other):
-        """
-        Called when the thing on the left of the * is not a matrix.
+         """
+          Called when the thing on the left of the * is not a matrix.
 
-        Example:
-
-        > identity = Matrix([ [1,0], [0,1] ])
-        > doubled  = 2 * identity
-        > print(doubled)
-          2.0  0.0
-          0.0  2.0
-        """
+          Example:
+  
+          > identity = Matrix([ [1,0], [0,1] ])
+          > doubled  = 2 * identity
+          > print(doubled)
+      2.0  0.0
+         0.0  2.0
+    """
         if isinstance(other, numbers.Number):
-            pass
-            #   
-            # TODO - your code here
-            #
+            grid = self
+            for r in range(self.h):
+                for c in range(self.w):
+
+                    grid[r][c] *= other
+            return grid
             
