@@ -1,4 +1,4 @@
-import math
+ import math
 from math import sqrt
 import numbers
 
@@ -16,7 +16,6 @@ def identity(n):
         I = zeroes(n, n)
         for i in range(n):
             I.g[i][i] = 1.0
-
         return I
 
 class Matrix(object):
@@ -175,12 +174,12 @@ class Matrix(object):
         #   
         # TODO - your code here
         #
-         result = []
+        result = []
         for i in range(self.h):
             row = []
             for j in range(self.w):
                 row.append(-self[i][j])
-        result.append(row)
+            result.append(row)
 
         return Matrix(result)
 
@@ -219,12 +218,11 @@ class Matrix(object):
           > print(doubled)
       2.0  0.0
          0.0  2.0
-    """
+         """
         if isinstance(other, numbers.Number):
             grid = self
             for r in range(self.h):
                 for c in range(self.w):
-
                     grid[r][c] *= other
             return grid
             
